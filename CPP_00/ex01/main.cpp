@@ -6,40 +6,47 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:05:39 by ehouot            #+#    #+#             */
-/*   Updated: 2024/01/25 15:26:17 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/01/29 13:22:29 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cctype>
-#include <cstring>
-#include "phonebook.hpp"
-#include "contact.hpp"
+#include "common.hpp"
 
-int main(int argc, char **argv)
-{
-	char		input[8];
+int main(int argc, char **argv) {
+
+	char		input[256];
 	Phonebook	repertory;
-	int			i = -1;
+	int	i = 0;
 	(void)argv;
 
 	if (argc != 1)
 	{
-		std::cout << "No arguments accepted after the file .exe" << std::endl;
-		return (-1);
+		std::cout << "\033[1;31mNo arguments accepted after the file .exe\033[0m" << std::endl;
+		return (1);
 	}
-	while (++i < 7)
+	while (i < 8)
 	{
-		std::cout << "Input \"ADD\", \"SEARCH\" or \"EXIT\"" << std::endl;
-		std::cin >> input;
-		if (strncmp(input, "ADD", 4) != 0)
-			repertory.AddFunction(repertory);
-		else if (strncmp(input, "SEARCH", 7) != 0)
-			repertory.SearchFunction();
-		else if (strncmp(input, "EXIT", 5) != 0)
-			exit(0);
-		if (i == 7)
-			i = -1;
+		std::cout << "\033[1;32mType an input : \"ADD\", \"SEARCH\" or \"EXIT\"\033[0m" << std::endl;
+		if (!cin_error(input, sizeof(input)))
+			return (1);
+		if (std::strncmp(input, "ADD", 4) == 0)
+		{
+			if (!repertory.AddFunction(i))
+				std::cout << "\033[1;31mError adding contact. Please try again.\033[0m" << std::endl;
+			i++;
+		}
+		else if (std::strncmp(input, "SEARCH", 8) == 0)
+		{
+			if (!repertory.SearchFunction())
+				std::cout << "\033[1;31mError searching contacts. Please try again.\033[0m" << std::endl;
+		}
+		else if (std::strncmp(input, "EXIT", 5) == 0)
+		{
+			std::cout << "\033[1;35mExiting...\033[0m" << std::endl;
+			return (0);
+		}
+		if (i == 8)
+			i = 0;
 	}
 	return (0);
 }

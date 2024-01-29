@@ -6,14 +6,14 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:23:35 by ehouot            #+#    #+#             */
-/*   Updated: 2024/01/25 15:26:08 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/01/29 12:54:26 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
-#include "contact.hpp"
+#include "common.hpp"
 
 class Phonebook {
 	
@@ -23,10 +23,13 @@ public:
 
 	Phonebook(void);
 	~Phonebook(void);
-	void	AddFunction(Phonebook repertory);
-	Contact	SearchFunction(Contact list, Contact search);
-	
-};
+	bool	AddFunction(int i);
+	bool	SearchFunction(void);
 
+private:
+
+	bool	FindIndex(int i);
+
+};
 
 #endif

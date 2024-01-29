@@ -1,4 +1,7 @@
 SRC_MAIN 	= 	./main.cpp \
+				./phonebook.cpp \
+				./contact.cpp \
+				./cin_error.cpp
 
 SRC			= ${SRC_MAIN}
 
@@ -12,7 +15,7 @@ RM 			= rm -f
 
 CPPFLAGS 	= -Wall -Werror -Wextra -std=c++98
 
-NAME 		= megaphone
+NAME 		= phonebook
 
 ifdef DEBUG
 	CPPFLAGS += -fsanitize=address -g3

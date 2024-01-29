@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   common.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 09:41:24 by ehouot            #+#    #+#             */
-/*   Updated: 2024/01/28 18:27:44 by ehouot           ###   ########.fr       */
+/*   Created: 2024/01/28 15:09:43 by ehouot            #+#    #+#             */
+/*   Updated: 2024/01/28 17:00:41 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef COMMON_HPP
+# define COMMON_HPP
+
+#include <iostream>
+#include <iomanip>
+#include <cctype>
+#include <cstring>
+#include <cstdio>
+#include <cstdlib>
+#include <limits>
 #include "contact.hpp"
+#include "phonebook.hpp"
 
-Contact::Contact(void) {
-    
-    std::cout << "\033[1;34m(Contact)\033[0m Constructor called" << std::endl;
-    return ;
-}
+bool	cin_error(char *input, std::size_t size);
 
-Contact::~Contact(void) {
-    
-    std::cout << "\033[1;34m(Contact)\033[0m Destructor called" << std::endl;
-    return ;
-}
-
+#endif

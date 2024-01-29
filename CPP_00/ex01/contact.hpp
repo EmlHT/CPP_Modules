@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:41:58 by ehouot            #+#    #+#             */
-/*   Updated: 2024/01/25 15:01:50 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/01/29 13:21:55 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 # define CONTACT_H
 
 #include <cstring>
+#include <iostream>
 
 class Contact {
 
 public:
 
-	char	*firstname;
-	char	*lastname;
-	char	*nickname;
-	char	*phonenumber;
-	char	*darkest_secret;
+	char	firstname[256];
+	char	lastname[256];
+	char	nickname[256];
+	char	phonenumber[256];
+	char	darkest_secret[256];
 
-	Contact(char *firstname, char *lastname, char *nickname, char *phonenumber, char *darkest_secret);
+	Contact(void);
 	~Contact(void);
 
 };

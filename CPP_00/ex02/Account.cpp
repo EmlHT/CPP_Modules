@@ -12,24 +12,44 @@
 
 #include "Account.hpp"
 #include <iostream>
+#include <ctime>
 
-static int	getNbAccounts( void ) {
+int	Account::getNbAccounts( void ) {
 
-    return (_nbAccounts)
-    
+    return (_nbAccounts);
 }
 
-static int	getTotalAmount( void );
-static int	getNbDeposits( void );
-static int	getNbWithdrawals( void );
-static void	displayAccountsInfos( void );
+int	Account::getTotalAmount( void ) {
+
+    return (_totalAmount);
+}
+
+int	Account::getNbDeposits( void ) {
+
+    return (_totalNbDeposits);
+}
+
+int	Account::getNbWithdrawals( void ) {
+
+    return (_totalNbWithdrawals);
+}
+
+void    Account::_displayTimestamp( void ) {
+
+    std::cout << "[" << localtime(0) << "]" << std::endl;
+}
+
+void	Account::displayAccountsInfos( void ) {
+
+    _displayTimestamp();
+    std::cout << "accounts:" << getNbAccounts() << ";total:" << getTotalAmount() << ";deposits:" << getNbDeposits() << ";withdrawals:" << getNbWithdrawals() << std::endl;
+}
 
 void	makeDeposit( int deposit );
 bool	makeWithdrawal( int withdrawal );
-int		checkAmount( void ) const;
-void	displayStatus( void ) const;
+// int		checkAmount( void ) const;
+// void	displayStatus( void ) const;
 
-static void	_displayTimestamp( void );
 
 Account::Account (void)
 {
@@ -40,8 +60,8 @@ Account::Account (void)
 
 Account::Account( int initial_deposit )
 {
-	std::cout << "Constructeur initialized called" << std::endl;
-    _nbDeposits = 1;
+	std::cout << "index:0;amount:42;created" << std::endl;
+    Account::_nbDeposits = 1;
     _amount = initial_deposit;
     return ;
 }

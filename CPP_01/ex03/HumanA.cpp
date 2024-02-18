@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 12:08:34 by ehouot            #+#    #+#             */
-/*   Updated: 2024/02/16 08:34:48 by ehouot           ###   ########.fr       */
+/*   Created: 2024/02/16 12:03:53 by ehouot            #+#    #+#             */
+/*   Updated: 2024/02/16 12:04:18 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "HumanA.hpp"
 
-#include <iostream>
-#include <string>
+HumanA::HumanA(/* args */)
+{
+}
 
-class Zombie {
-
-public :
-
-    Zombie( void );
-    ~Zombie( void );
-    
-	void setName(std::string name);
-    void announce( void );
-
-    int _indexZ;
-    
-private :
-
-    static int _nbZombie;
-    std::string _name;
-    
-};
-
-Zombie* zombieHorde( int N, std::string name );
-
-#endif
+HumanA::~HumanA()
+{
+}

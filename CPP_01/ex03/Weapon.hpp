@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:37:28 by ehouot            #+#    #+#             */
-/*   Updated: 2024/02/16 15:04:45 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/02/18 01:55:26 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	~Weapon( void );
 
     void			setType( std::string _type);
-    std::string&	getType( std::string _type) const;
+    std::string&	getType( void ) const;
 
 private:
 

@@ -1,7 +1,5 @@
 SRC_MAIN 	= 	./main.cpp \
-				./Weapon.cpp \
-				./HumanA.cpp \
-				./HumanB.cpp
+				./replace.cpp \
 
 SRC			= ${SRC_MAIN}
 

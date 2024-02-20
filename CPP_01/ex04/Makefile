@@ -18,7 +18,7 @@ CPPFLAGS 	= -Wall -Werror -Wextra -std=c++98
 NAME 		= Weapon
 
 ifdef DEBUG
-	CPPFLAGS += -fsanitize=address -g
+	CPPFLAGS += -fsanitize=address -g3
 endif
 
 all:		$(NAME)

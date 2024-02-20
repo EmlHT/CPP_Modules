@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:35:55 by ehouot            #+#    #+#             */
-/*   Updated: 2024/02/20 16:26:13 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:56:52 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ HumanB::HumanB( std::string pName ) : _name(pName), _weapon(NULL)
 
 HumanB::~HumanB()
 {
+	std::cout << "Destructor HumanB called" << std::endl;
 }

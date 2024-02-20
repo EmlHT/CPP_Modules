@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:37:28 by ehouot            #+#    #+#             */
-/*   Updated: 2024/02/18 01:55:26 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/02/20 15:02:55 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define WEAPON_HPP
 
 # include <iostream>
+# include <string>
+//# include "HumanA.hpp"
 
 class Weapon {
 
@@ -22,8 +24,8 @@ public:
 	Weapon( std::string str );
 	~Weapon( void );
 
-    void			setType( std::string _type);
-    std::string&	getType( void ) const;
+    void		setType( std::string _type);
+    std::string	getType( void ) const;
 
 private:
 

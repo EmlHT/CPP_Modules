@@ -1,5 +1,4 @@
 SRC_MAIN 	= 	./main.cpp \
-				./replace.cpp \
 
 SRC			= ${SRC_MAIN}
 
@@ -7,13 +6,13 @@ OBJ			= ${SRC:.cpp=.o}
 
 HEADER		= ./
 
-CC 			= c++
+CC 			= g++
 
 RM 			= rm -f
 
 CPPFLAGS 	= -Wall -Werror -Wextra -std=c++98
 
-NAME 		= Weapon
+NAME 		= sed
 
 ifdef DEBUG
 	CPPFLAGS += -fsanitize=address -g3

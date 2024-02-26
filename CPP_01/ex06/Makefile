@@ -13,7 +13,7 @@ RM 			= rm -f
 
 CPPFLAGS 	= -Wall -Werror -Wextra -std=c++98
 
-NAME 		= Harl
+NAME 		= harlFilter
 
 ifdef DEBUG
 	CPPFLAGS += -fsanitize=address -g3

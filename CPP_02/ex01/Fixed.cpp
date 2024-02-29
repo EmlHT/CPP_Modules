@@ -6,18 +6,28 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:02:06 by ehouot            #+#    #+#             */
-/*   Updated: 2024/02/29 15:10:39 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/02/29 16:01:34 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : _value(0), _constValue(8)
+Fixed::Fixed() : _value(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed( const Fixed &src ) : _value(src._value), _constValue(src._constValue)
+Fixed::Fixed( const int val ) : _value(val << _constValue)
+{
+	std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed( const float val ) : _value(static_cast<int>(roundf(val * (1 << _constValue))))
+{
+	std::cout << "Float constructor called" << std::endl;
+}
+
+Fixed::Fixed( const Fixed &src ) : _value(src._value)
 {
 	std::cout << "Copy constructor called" << std::endl;
 }
@@ -37,6 +47,12 @@ Fixed &	Fixed::operator=( const Fixed &rhs )
 	return (*this);
 }
 
+std::ostream& operator<<(std::ostream& os, const Fixed& rhs)
+{
+	os << rhs.toFloat();
+	return os;
+}
+
 int		Fixed::getRawBits() const
 {
 	std::cout << "getRawBits member function called" << std::endl;
@@ -47,6 +63,16 @@ void	Fixed::setRawBits( int const raw )
 {
 	std::cout << "setRawBits member function called" << std::endl;
 	this->_value = raw;
+}
+
+int		Fixed::toInt( void ) const
+{
+	return (this->_value >> _constValue);
+}
+
+float	Fixed::toFloat( void ) const
+{
+	return (static_cast<float>(_value) / (1 << this->_constValue));
 }
 
 const int Fixed::_constValue = 8;

@@ -6,18 +6,18 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:02:06 by ehouot            #+#    #+#             */
-/*   Updated: 2024/02/29 15:10:39 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/02 13:28:05 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : _value(0), _constValue(8)
+Fixed::Fixed() : _value(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed( const Fixed &src ) : _value(src._value), _constValue(src._constValue)
+Fixed::Fixed( const Fixed &src ) : _value(src._value)
 {
 	std::cout << "Copy constructor called" << std::endl;
 }

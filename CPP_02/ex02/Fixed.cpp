@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:02:06 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/11 14:41:37 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/11 18:04:44 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,10 @@ bool	Fixed::operator!=( const Fixed& rhs ) const
 
 Fixed	Fixed::operator+( const Fixed &rhs ) const
 {
-	return (this->_value + rhs._value);
+	float	a = this->toFloat();
+	float	b = rhs.toFloat();
+	Fixed	result = (a + b);
+	return (result);
 }
 
 Fixed	Fixed::operator/( const Fixed &rhs ) const
@@ -129,17 +132,26 @@ Fixed	Fixed::operator/( const Fixed &rhs ) const
 		std::cout << "Division by 0 impossible" << std::endl;
 		return 0;
 	}
-	return (this->_value / rhs._value);
+	float	a = this->toFloat();
+	float	b = rhs.toFloat();
+	Fixed	result = (a / b);
+	return (result);
 }
 
 Fixed	Fixed::operator-( const Fixed &rhs ) const
 {
-	return (this->_value - rhs._value);
+	float	a = this->toFloat();
+	float	b = rhs.toFloat();
+	Fixed	result = (a - b);
+	return (result);
 }
 
 Fixed	Fixed::operator*( const Fixed &rhs ) const
 {
-	return (this->_value * rhs._value);
+	float	a = this->toFloat();
+	float	b = rhs.toFloat();
+	Fixed	result = (a * b);
+	return (result);
 }
 
 Fixed&	Fixed::operator++()
@@ -156,15 +168,15 @@ Fixed& 	Fixed::operator--()
 
 Fixed	Fixed::operator++(int)
 {
-	Fixed	before(this->_value);
-	this->_value++;
+	Fixed	before(*this);
+	++(*this);
 	return (before);
 }
 
 Fixed	Fixed::operator--(int)
 {
-	Fixed	before(this->_value);
-	this->_value--;
+	Fixed	before(*this);
+	--(*this);
 	return (before);
 }
 

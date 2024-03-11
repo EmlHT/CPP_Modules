@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:02:06 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/06 12:03:00 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/11 14:41:37 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 Fixed::Fixed() : _value(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed( const int val ) : _value(val << _constValue)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed( const float val ) : _value(static_cast<int>(roundf(val * (1 << _constValue))))
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed( const Fixed &src ) : _value(src._value)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 Fixed &	Fixed::operator=( const Fixed &rhs )
@@ -75,4 +75,149 @@ float	Fixed::toFloat( void ) const
 	return (static_cast<float>(_value) / (1 << this->_constValue));
 }
 
-const int Fixed::_constValue = 8;
+bool	Fixed::operator>( const Fixed& rhs ) const
+{
+	if (this->_value > rhs._value)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator<( const Fixed& rhs ) const
+{
+	if (this->_value < rhs._value)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator>=( const Fixed& rhs ) const
+{
+	if (this->_value >= rhs._value)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator<=( const Fixed& rhs ) const
+{
+	if (this->_value <= rhs._value)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator==( const Fixed& rhs ) const
+{
+	if (this->_value == rhs._value)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator!=( const Fixed& rhs ) const
+{
+	if (this->_value != rhs._value)
+		return (true);
+	return (false);
+}
+
+Fixed	Fixed::operator+( const Fixed &rhs ) const
+{
+	return (this->_value + rhs._value);
+}
+
+Fixed	Fixed::operator/( const Fixed &rhs ) const
+{
+	if (rhs._value == 0)
+	{
+		std::cout << "Division by 0 impossible" << std::endl;
+		return 0;
+	}
+	return (this->_value / rhs._value);
+}
+
+Fixed	Fixed::operator-( const Fixed &rhs ) const
+{
+	return (this->_value - rhs._value);
+}
+
+Fixed	Fixed::operator*( const Fixed &rhs ) const
+{
+	return (this->_value * rhs._value);
+}
+
+Fixed&	Fixed::operator++()
+{
+	this->_value++;
+	return *this;
+}
+
+Fixed& 	Fixed::operator--()
+{
+	this->_value--;
+	return *this;
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	before(this->_value);
+	this->_value++;
+	return (before);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	before(this->_value);
+	this->_value--;
+	return (before);
+}
+
+Fixed	Fixed::min( Fixed& a, Fixed& b )
+{
+	if (a == b)
+	{
+		std::cout << "They are equals" << std::endl;
+		return (a);
+	}
+	if (a > b)
+		return (b);
+	else
+		return (a);
+}
+
+Fixed const	Fixed::min( const Fixed& a, const Fixed& b )
+{
+	if (a == b)
+	{
+		std::cout << "They are equals" << std::endl;
+		return (a);
+	}
+	if (a > b)
+		return (b);
+	else
+		return (a);
+}
+
+Fixed	Fixed::max( Fixed& a, Fixed& b )
+{
+	if (a == b)
+	{
+		std::cout << "They are equals" << std::endl;
+		return (a);
+	}
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+Fixed const	Fixed::max( const Fixed& a, const Fixed& b )
+{
+	if (a == b)
+	{
+		std::cout << "They are equals" << std::endl;
+		return (a);
+	}
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+const int	Fixed::_constValue = 8;

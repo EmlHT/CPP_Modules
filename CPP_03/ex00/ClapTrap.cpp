@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 18:39:01 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/11 20:58:38 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/12 16:52:55 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	ClapTrap::attack(const std::string& target)
 	{
 		std::cout << "ClapTrap " << this->getGlobal().name << " attacks " << target << ", causing " << this->getGlobal().attack << " points of damage!" << std::endl;
 		setEnergy(this->_energy - 1);
+		std::cout << "ClapTrap " << this->getGlobal().name << " has now " << this->getGlobal().energy << " energy." << std::endl;
 	}
 }
 
@@ -92,10 +93,13 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << this->getGlobal().name << " is already full life, no repair required." << std::endl;
 	else
 	{
+		if (this->getGlobal().energy <= 0)
+			std::cout << "No more energy, impossible to repair." << std::endl;
 		setEnergy(this->_energy - 1);
 		if (this->getGlobal().health + amount > 10)
 			realAmount = 10 - this->getGlobal().health;
 		setHealth(this->_health + amount);
 		std::cout << "ClapTrap " << this->getGlobal().name << " is repairing " << realAmount << ". (" << this->getGlobal().name << " got now " << this->getGlobal().health << " HP)." << std::endl;
+		std::cout << "ClapTrap " << this->getGlobal().name << " has now " << this->getGlobal().energy << " energy." << std::endl;
 	}
 }

@@ -6,18 +6,18 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 18:39:01 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/13 12:15:04 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/13 12:50:05 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( void ) : _name("NoName"), _health(10), _energy(10), _attack(0)
+ClapTrap::ClapTrap( void ) : _name("NoName"), _health(100), _energy(50), _attack(20)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap( std::string name) : _name(name), _health(10), _energy(10), _attack(0)
+ClapTrap::ClapTrap( std::string name) : _name(name), _health(100), _energy(50), _attack(20)
 {
 	std::cout << "Parametric constructor called" << std::endl;
 }

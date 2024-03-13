@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 18:40:16 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/13 12:17:20 by ehouot           ###   ########.fr       */
+/*   Created: 2024/03/13 12:19:27 by ehouot            #+#    #+#             */
+/*   Updated: 2024/03/13 12:48:04 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int	main()
-{
-	ClapTrap	Bot1;
-    ClapTrap	Bot2("CLAUDY");
-	ClapTrap	Bot3(Bot1);
+# include <iostream>
+# include <string>
+# include "ClapTrap.hpp"
 
-    Bot2.setAttack(2);
-	Bot2.attack(Bot1.getGlobal().name);
-	Bot1.takeDamage(2);
-	Bot2.beRepaired(2);
-	Bot1.beRepaired(1);
-    Bot3.beRepaired(1);
-    Bot3.setAttack(10);
-	Bot3.attack("CLAUDY");
-	Bot2.takeDamage(10);
+class ScavTrap : public ClapTrap {
+    
+    public :
 
-	return(0);
-}
+	ScavTrap( void );
+	ScavTrap( std::string name);
+	ScavTrap( const ScavTrap &src);
+	~ScavTrap( void );
+
+	ScavTrap &	operator=( const ScavTrap &rhs );
+
+	void	guardGate();
+
+    private :
+
+    
+    
+};
+
+#endif

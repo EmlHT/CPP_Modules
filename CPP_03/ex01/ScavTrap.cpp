@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:18:51 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/14 13:21:55 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/14 19:18:03 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ScavTrap::ScavTrap( std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap Parametric constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap( const ScavTrap &src )
+ScavTrap::ScavTrap( const ScavTrap &src ) : ClapTrap(src)
 {
 	this->setHealthStart(src.getGlobal().healthStart);
 	this->setName(src.getGlobal().name);

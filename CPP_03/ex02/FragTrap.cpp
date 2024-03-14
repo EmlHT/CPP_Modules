@@ -1,35 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 12:19:27 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/14 10:13:49 by ehouot           ###   ########.fr       */
+/*   Created: 2024/03/14 13:35:18 by ehouot            #+#    #+#             */
+/*   Updated: 2024/03/14 13:35:32 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "FragTrap.hpp"
 
-# include <iostream>
-# include <string>
-# include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap {
-    
-    public :
-
-	ScavTrap( void );
-	ScavTrap( std::string name);
-	ScavTrap( const ScavTrap &src);
-	~ScavTrap( void );
-
-	ScavTrap &	operator=( const ScavTrap &rhs );
-
-	void	guardGate();
-
-};
-
-#endif

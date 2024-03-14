@@ -1,6 +1,7 @@
 SRC_MAIN 	= 	./main.cpp \
 				./ClapTrap.cpp \
-				./ScavTrap.cpp
+				./ScavTrap.cpp \
+				./FragTrap.cpp
 
 SRC			= ${SRC_MAIN}
 

@@ -15,7 +15,7 @@ RM 			= rm -f
 
 CPPFLAGS 	= -Wall -Werror -Wextra -std=c++98
 
-NAME 		= ScavTrap
+NAME 		= FragTrap
 
 ifdef DEBUG
 	CPPFLAGS += -fsanitize=address -g3

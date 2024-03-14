@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:35:41 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/14 13:36:25 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/14 18:48:03 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class FragTrap : public ClapTrap {
 
 	FragTrap &	operator=( const FragTrap &rhs );
 
-	void	guardGate();
+	void	highFivesGuys( void );
 
 };
 

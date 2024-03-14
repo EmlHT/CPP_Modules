@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 18:39:18 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/14 13:16:50 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/14 19:09:14 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include <string>
-
 
 class	ClapTrap {
     

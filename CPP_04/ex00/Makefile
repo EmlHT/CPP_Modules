@@ -1,6 +1,9 @@
 SRC_MAIN 	= 	./main.cpp \
-				./ClapTrap.cpp \
-				./ScavTrap.cpp
+				./Animal.cpp \
+				./Dog.cpp \
+				./Cat.cpp \
+				./WrongCat.cpp \
+				./WrongAnimal.cpp 
 
 SRC			= ${SRC_MAIN}
 
@@ -14,7 +17,7 @@ RM 			= rm -f
 
 CPPFLAGS 	= -Wall -Werror -Wextra -std=c++98
 
-NAME 		= ScavTrap
+NAME 		= Animals
 
 ifdef DEBUG
 	CPPFLAGS += -fsanitize=address -g3

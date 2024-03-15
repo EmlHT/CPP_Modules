@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:42:37 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/15 13:44:48 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/15 15:29:56 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,9 @@ Dog &	Dog::operator=( const Dog &rhs )
 		*this = rhs;
 	}
 	return (*this);
+}
+
+void	Dog::makeSound( void ) const
+{
+	std::cout << "Wouaf ! Wouaf !" << std::endl;
 }

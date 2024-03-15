@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:45:34 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/15 13:45:50 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/15 18:27:38 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,20 @@
 # define CAT_HPP
 
 # include <iostream>
-# include <string>
 # include "Animal.hpp"
 
-class Dog : public Animal {
+class Cat : public Animal {
 
 	public :
 
-	Dog( void );
-	Dog( std::string name);
-	Dog( const Dog &src);
-	virtual ~Dog( void );
+	Cat( void );
+	Cat( std::string name);
+	Cat( const Cat &src);
+	virtual ~Cat( void );
 
-	Dog &	operator=( const Dog &rhs );
+	Cat &	operator=( const Cat &rhs );
 
-	void	getType( void ) const;
-
-	void	makeSound() const;
+	virtual void	makeSound( void ) const;
 
 };
 

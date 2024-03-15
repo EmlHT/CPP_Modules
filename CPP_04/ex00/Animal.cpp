@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:16:38 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/15 13:29:50 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/15 17:32:03 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,14 @@ Animal &	Animal::operator=( const Animal &rhs )
 		*this = rhs;
 	}
 	return (*this);
+}
+
+std::string	Animal::getType( void ) const
+{
+	return (this->_type);
+}
+
+void	Animal::makeSound( void ) const
+{
+	std::cout << "Common sound of an animal" << std::endl;
 }

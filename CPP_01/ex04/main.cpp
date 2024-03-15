@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:58:32 by ehouot            #+#    #+#             */
-/*   Updated: 2024/02/23 13:46:57 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/15 14:41:25 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,29 @@ int	main(int argc, char** argv)
 	std::string		ofilename = filename + ".replace";
 
 	std::ifstream	ifs(filename.c_str());
-	std::ofstream 	ofs(ofilename.c_str());
 
-	if (ifs.is_open() && ofs.is_open())
+	if (ifs.is_open())
 	{
-		std::string content;
-		std::string line;
-		while (std::getline(ifs, line))
+		std::ofstream 	ofs(ofilename.c_str());
+		if (ofs.is_open())
 		{
-			std::string::size_type pos = 0;
-			while ((pos = line.find(s1, pos)) != std::string::npos)
+			std::string content;
+			std::string line;
+			while (std::getline(ifs, line))
 			{
-				line.erase(pos, s1.length());
-				line.insert(pos, s2);
-				pos += s2.length();
+				std::string::size_type pos = 0;
+				while ((pos = line.find(s1, pos)) != std::string::npos)
+				{
+					line.erase(pos, s1.length());
+					line.insert(pos, s2);
+					pos += s2.length();
+				}
+				content += line + '\n';
 			}
-			content += line + '\n';
+			ofs << content;
+			ifs.close();
+			ofs.close();
 		}
-		ofs << content;
-        ifs.close();
-		ofs.close();
     }
 	else
 	{

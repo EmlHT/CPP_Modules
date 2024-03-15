@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 12:37:28 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/15 14:39:09 by ehouot           ###   ########.fr       */
+/*   Created: 2024/03/15 13:11:11 by ehouot            #+#    #+#             */
+/*   Updated: 2024/03/15 13:27:17 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 # include <iostream>
 # include <string>
-//# include "HumanA.hpp"
 
-class Weapon {
+class Animal {
 
-public:
+	public :
 
-	Weapon( std::string str );
-	~Weapon( void );
+	Animal( void );
+	Animal( std::string name);
+	Animal( const Animal &src);
+	virtual ~Animal( void );
 
-    void		setType( std::string _type);
-    std::string	const &getType( void ) const;
+	Animal &	operator=( const Animal &rhs );
 
-private:
+	void	getType( void ) const;
 
-    std::string _type;
+	void	makeSound() const;
+
+	protected :
+
+	std::string _type;
 
 };
 

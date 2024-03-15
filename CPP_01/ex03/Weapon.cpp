@@ -6,13 +6,13 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:36:48 by ehouot            #+#    #+#             */
-/*   Updated: 2024/02/20 17:45:29 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/15 14:39:31 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-std::string Weapon::getType( void ) const
+std::string const & Weapon::getType( void ) const
 {
     return (_type);
 }

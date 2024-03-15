@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:14:27 by ehouot            #+#    #+#             */
-/*   Updated: 2024/02/26 14:42:13 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/15 14:43:55 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define HARL_HPP
 
 # include <iostream>
-# include <string>
 
 class Harl {
 

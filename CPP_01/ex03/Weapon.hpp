@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:37:28 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/15 14:39:09 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/15 14:48:37 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define WEAPON_HPP
 
 # include <iostream>
-# include <string>
-//# include "HumanA.hpp"
 
 class Weapon {
 

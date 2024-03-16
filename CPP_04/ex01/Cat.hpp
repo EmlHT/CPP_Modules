@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:45:34 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/15 18:27:38 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/16 12:09:35 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ class Cat : public Animal {
 	Cat &	operator=( const Cat &rhs );
 
 	virtual void	makeSound( void ) const;
+
+	private :
+
+	Brain* _brain;
 
 };
 

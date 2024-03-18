@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 10:57:48 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/16 12:05:41 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/18 18:26:24 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Brain {
 
 	std::string	getIdeas( void ) const;
 
-	protected :
+	private :
 
 	std::string _ideas[100];
 

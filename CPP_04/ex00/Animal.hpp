@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:11:11 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/15 18:43:15 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/16 11:53:54 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Animal {
 	public :
 
 	Animal( void );
-	Animal( std::string name);
+	Animal( std::string type);
 	Animal( const Animal &src);
 	virtual ~Animal( void );
 

@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:16:38 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/15 17:32:03 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/18 18:36:10 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ Animal &	Animal::operator=( const Animal &rhs )
 std::string	Animal::getType( void ) const
 {
 	return (this->_type);
+}
+
+void		Animal::setType( std::string type )
+{
+	this->_type = type;
 }
 
 void	Animal::makeSound( void ) const

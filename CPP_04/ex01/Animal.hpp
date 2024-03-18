@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:11:11 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/16 12:09:48 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/18 18:35:26 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Animal {
 	Animal &	operator=( const Animal &rhs );
 
 	std::string	getType( void ) const;
+	void		setType( std::string type );
 
 	virtual void	makeSound( void ) const;
 

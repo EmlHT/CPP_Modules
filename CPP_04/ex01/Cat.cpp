@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:09:08 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/15 15:29:33 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/18 18:38:54 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,25 @@
 Cat::Cat( void ) : Animal("Cat")
 {
 	std::cout << "Cat Default constructor called" << std::endl;
+	this->_brain = new Brain();
 }
 
 Cat::Cat( std::string type) : Animal(type)
 {
 	std::cout << "Cat Parametric constructor called" << std::endl;
+	this->_brain = new Brain();
 }
 
 Cat::Cat( const Cat &src ) : Animal(src)
 {
 	std::cout << "Cat Copy constructor called" << std::endl;
+	this->_brain = new Brain();
 }
 
 Cat::~Cat()
 {
 	std::cout << "Cat Destructor called" << std::endl;
+	delete this->_brain;
 }
 
 Cat &	Cat::operator=( const Cat &rhs )

@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:09:08 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/18 18:38:54 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/19 11:48:33 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ Cat::Cat( const Cat &src ) : Animal(src)
 
 Cat::~Cat()
 {
-	std::cout << "Cat Destructor called" << std::endl;
 	delete this->_brain;
+	std::cout << "Cat Destructor called" << std::endl;
 }
 
 Cat &	Cat::operator=( const Cat &rhs )

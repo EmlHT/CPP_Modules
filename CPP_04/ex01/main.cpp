@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:10:13 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/15 19:45:55 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/19 11:50:32 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,20 @@
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-
-	const WrongAnimal* metb = new WrongAnimal();
-	const WrongAnimal* a = new WrongCat();
-
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-
-	a->makeSound();
-	metb->makeSound();
-	delete metb;
-	delete a;
-
-	delete meta;
-	delete j;
-	delete i;
+	const Animal* tab[4];
+	
+	for (int i = 0; i < 2; i++)
+		tab[i] = new Cat();
+	for (int i = 2; i < 4; i++)
+		tab[i] = new Dog();
+	for(int i = 0; i < 4; i++)
+		std::cout << "Tab[" << i << "] : " << tab[i]->getType() << " " << std::endl;
+	
+	int i = 4;
+	while (--i >= 0)
+	{
+		delete tab[i]; 
+	}
+	
 	return 0;
 }

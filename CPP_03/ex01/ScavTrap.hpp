@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:19:27 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/14 10:13:49 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/19 15:12:29 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class ScavTrap : public ClapTrap {
 	~ScavTrap( void );
 
 	ScavTrap &	operator=( const ScavTrap &rhs );
+
+	virtual void	attack(const std::string& target);
 
 	void	guardGate();
 

@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:18:51 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/14 19:18:03 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/19 15:13:29 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,19 @@ ScavTrap &	ScavTrap::operator=( const ScavTrap &rhs )
 		*this = rhs;
 	}
 	return (*this);
+}
+
+void	ScavTrap::attack(const std::string& target)
+{
+	if (this->getGlobal().energy <= 0)
+		std::cout << "[ScavTrap] No more energy, impossible to attack." << std::endl;
+	else
+	{
+		std::cout << "ScavTrap " << this->getGlobal().name << " attacks " << target << ", causing " << this->getGlobal().attack << " points of damage!" << std::endl;
+		setEnergy(this->_energy - 1);
+		std::cout << "ScavTrap " << this->getGlobal().name << " has now " << this->getGlobal().energy << " energy." << std::endl;
+	}
+	std::cout << std::endl;
 }
 
 void	ScavTrap::guardGate( void )

@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 18:39:18 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/14 13:16:50 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/19 15:12:06 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class	ClapTrap {
 	void		setName( std::string name);
 	void		setHealthStart( int healthStart);
 	
-	void	attack(const std::string& target);
+	virtual void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 

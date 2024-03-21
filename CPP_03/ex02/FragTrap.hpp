@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:35:41 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/14 18:48:03 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/19 15:14:55 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class FragTrap : public ClapTrap {
 	~FragTrap( void );
 
 	FragTrap &	operator=( const FragTrap &rhs );
+
+	virtual void	attack(const std::string& target);
 
 	void	highFivesGuys( void );
 

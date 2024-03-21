@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:42:40 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/19 16:46:50 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/21 14:56:47 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ AMateria::AMateria( void ) : _type("AMateria")
 	std::cout << "AMateria Default constructor called" << std::endl;
 }
 
-AMateria::AMateria( std::string type) : _type(type)
+AMateria::AMateria( std::string const &  type) : _type(type)
 {
 	std::cout << "AMateria Parametric constructor called" << std::endl;
 }
@@ -45,4 +45,14 @@ AMateria &	AMateria::operator=( const AMateria &rhs )
 const std::string&	AMateria::getType( void ) const
 {
 	return (this->_type);
+}
+
+AMateria* AMateria::clone() const
+{
+	return new AMateria(*this);
+}
+
+void AMateria::use(ICharacter& target)
+{
+	
 }

@@ -6,12 +6,15 @@
 #    By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/19 15:55:47 by ehouot            #+#    #+#              #
-#    Updated: 2024/03/19 15:56:04 by ehouot           ###   ########.fr        #
+#    Updated: 2024/03/25 11:42:10 by ehouot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_MAIN 	= 	./main.cpp \
 				./AMateria.cpp \
+				./Ice.cpp \
+				./Cure.cpp \
+				./Character.cpp \
 
 SRC			= ${SRC_MAIN}
 

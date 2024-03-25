@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Amateria.cpp                                       :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:42:40 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/21 14:56:47 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/25 16:00:19 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,11 @@ const std::string&	AMateria::getType( void ) const
 	return (this->_type);
 }
 
-AMateria* AMateria::clone() const
-{
-	return new AMateria(*this);
-}
-
 void AMateria::use(ICharacter& target)
 {
-	
+	if (this->getType() == "ice")
+		std::cout << " shoots an ice bolt at " << target.getName() << std::endl;
+	else if (this->getType() == "cure")
+		std::cout << " heals " << target.getName() << "'s wounds" << std::endl;
 }
+

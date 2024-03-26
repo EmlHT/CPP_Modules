@@ -6,11 +6,13 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:43:38 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/26 19:41:36 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/26 21:09:08 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 MateriaSource::MateriaSource( void )
 {
@@ -62,5 +64,26 @@ void MateriaSource::learnMateria(AMateria* materia)
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-	
+	if (type != "ice" && type != "cure")
+	{
+		std::cout << type << "is an unknown type" << std::endl;
+		return 0;
+	}
+	else
+	{
+		for (int i = 3; i > -1; i--)
+		{
+			if (_memory[i] && _memory[i]->getType() == type)
+			{
+				AMateria* materia;
+				if (type == "ice")
+					materia = new Ice();
+				else
+					materia = new Cure();
+				return (materia);
+			}
+		}
+		std::cout << "The materia of type: " << type << " doesn't exist in memory" << std::endl;
+		return (0);
+	}
 }

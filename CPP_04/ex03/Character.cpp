@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 11:29:36 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/25 16:37:23 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/26 19:18:06 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,19 @@ Character::Character( std::string const &  name) : _name(name)
 	std::cout << "Character Parametric constructor called" << std::endl;
 }
 
-Character::Character( const Character &src ) : _name(src._name)
+Character::Character( const Character &src )
 {
+	*this = src;
 	std::cout << "Character Copy constructor called" << std::endl;
 }
 
 Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
-		delete _inventory[i];
+	{
+		if (_inventory[i] != NULL)
+			delete _inventory[i];
+	}
 		
 	int i = -1;
 

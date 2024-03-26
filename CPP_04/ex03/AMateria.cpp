@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:42:40 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/25 16:00:19 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/26 19:08:30 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ AMateria::AMateria( std::string const &  type) : _type(type)
 	std::cout << "AMateria Parametric constructor called" << std::endl;
 }
 
-AMateria::AMateria( const AMateria &src ) : _type(src._type)
+AMateria::AMateria( const AMateria &src )
 {
+	*this = src;
 	std::cout << "AMateria Copy constructor called" << std::endl;
 }
 

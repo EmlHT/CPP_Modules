@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 11:24:24 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/25 13:35:21 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/26 19:14:46 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,9 @@ Cure::Cure( void ) : AMateria("cure")
 	std::cout << "Cure Default constructor called" << std::endl;
 }
 
-Cure::Cure( std::string const &  type) : AMateria(type)
+Cure::Cure( const Cure &src )
 {
-	std::cout << "Cure Parametric constructor called" << std::endl;
-}
-
-Cure::Cure( const Cure &src ) : AMateria(src._type)
-{
+	*this = src;
 	std::cout << "Cure Copy constructor called" << std::endl;
 }
 

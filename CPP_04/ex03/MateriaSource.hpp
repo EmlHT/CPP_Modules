@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:44:32 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/25 17:01:46 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/26 19:05:26 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@
 # include "AMateria.hpp"
 # include "IMateriaSource.hpp"
 
-class MateriaSource : public AMateria
+class MateriaSource : public IMateriaSource
 {
+    private:
+
+    AMateria*   _memory[4];
+
     public:
 
-	MateriaSource(std::string const & name);
     MateriaSource( void );
 	MateriaSource( const MateriaSource &src);
     virtual ~MateriaSource( void );
@@ -30,6 +33,7 @@ class MateriaSource : public AMateria
 
     virtual void learnMateria(AMateria*);
     virtual AMateria* createMateria(std::string const & type);
+    AMateria* getMateria( unsigned int idx );
 };
 
 #endif

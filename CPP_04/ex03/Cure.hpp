@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 10:10:11 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/25 13:33:06 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/26 19:14:51 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class Cure : public AMateria
 {
     Cure( void );
-    Cure(std::string const & type);
 	Cure( const Cure &src);
 	virtual ~Cure( void );
 

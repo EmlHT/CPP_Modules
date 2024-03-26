@@ -6,29 +6,32 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:43:38 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/25 17:02:16 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/26 19:41:36 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource( void ) : AMateria("")
+MateriaSource::MateriaSource( void )
 {
+	for (int i = 0; i < 4; i++)
+		this->_memory[i] = NULL;
 	std::cout << "MateriaSource Default constructor called" << std::endl;
 }
 
-MateriaSource::MateriaSource( std::string const &  name) : _name(name)
+MateriaSource::MateriaSource( const MateriaSource &src )
 {
-	std::cout << "MateriaSource Parametric constructor called" << std::endl;
-}
-
-MateriaSource::MateriaSource( const MateriaSource &src ) : _name(src._name)
-{
+	*this = src;
 	std::cout << "MateriaSource Copy constructor called" << std::endl;
 }
 
 MateriaSource::~MateriaSource()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_memory[i] != NULL)
+			delete _memory[i];
+	}
 	std::cout << "MateriaSource Destructor called" << std::endl;
 }
 
@@ -42,12 +45,22 @@ MateriaSource &	MateriaSource::operator=( const MateriaSource &rhs )
 	return (*this);
 }
 
-void learnMateria(AMateria*)
+void MateriaSource::learnMateria(AMateria* materia)
 {
-	
+	int i = 0;
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_memory[i] != NULL)
+		{
+			this->_memory[i] = materia;
+			std::cout << "New materia " << materia->getType() << "learned in the slot " << i << std::endl;
+			break ;
+		}
+	}
 }
 
-AMateria* createMateria(std::string const & type)
+AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	
 }

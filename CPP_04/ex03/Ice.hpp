@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 11:24:17 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/26 19:14:59 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/29 09:42:10 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 class Ice : public AMateria
 {
+	public :
+	
     Ice( void );
 	Ice( const Ice &src);
 	virtual ~Ice( void );

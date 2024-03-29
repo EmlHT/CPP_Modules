@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 11:29:36 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/26 19:18:06 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/29 11:14:09 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,24 @@ Character::Character( void ) : _name("PNJ")
 {
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = NULL;
-	std::cout << "Character Default constructor called" << std::endl;
+	for (int i = 0; i < 10000; i++)
+		_ground[i] = NULL;
+	std::cout << "Character Default constructor called" << std::endl << std::endl;
 }
 
 Character::Character( std::string const &  name) : _name(name)
 {
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = NULL;
-	std::cout << "Character Parametric constructor called" << std::endl;
+	for (int i = 0; i < 10000; i++)
+		_ground[i] = NULL;
+	std::cout << "Character Parametric constructor called" << std::endl << std::endl;
 }
 
 Character::Character( const Character &src )
 {
 	*this = src;
-	std::cout << "Character Copy constructor called" << std::endl;
+	std::cout << "Character Copy constructor called" << std::endl << std::endl;
 }
 
 Character::~Character()
@@ -39,7 +43,7 @@ Character::~Character()
 		if (_inventory[i] != NULL)
 			delete _inventory[i];
 	}
-		
+
 	int i = -1;
 
 	while (_ground[++i])
@@ -49,10 +53,17 @@ Character::~Character()
 
 Character &	Character::operator=( const Character &rhs )
 {
-	std::cout << "Character Copy assignment operator called" << std::endl;
+	std::cout << "Character Copy assignment operator called" << std::endl << std::endl;
 	if ( this != &rhs )
 	{
-		*this = rhs;
+		for (int i = 0; i < 4; i++)
+		{
+			if (_inventory[i] != NULL)
+				delete _inventory[i];
+		}
+		for (int i = 0; i < 4; i++)
+			this->_inventory[i] = rhs._inventory[i];
+		this->_name = rhs._name;
 	}
 	return (*this);
 }
@@ -97,11 +108,13 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	std::cout << _name << std::endl;
 	if (idx >= 0 && idx < 4 && _inventory[idx]) 
+	{
+		std::cout << _name;
         _inventory[idx]->use(target);
+	}
 	else
         std::cout << "Invalid index or empty slot." << std::endl;
 }
 
-AMateria* _ground = NULL;
+AMateria* Character::_ground[10000];

@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:42:40 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/26 19:08:30 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/29 11:03:08 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 AMateria::AMateria( void ) : _type("AMateria")
 {
-	std::cout << "AMateria Default constructor called" << std::endl;
+	std::cout << "AMateria Default constructor called" << std::endl << std::endl;
 }
 
 AMateria::AMateria( std::string const &  type) : _type(type)
 {
-	std::cout << "AMateria Parametric constructor called" << std::endl;
+	std::cout << "AMateria Parametric constructor called" << std::endl << std::endl;
 }
 
 AMateria::AMateria( const AMateria &src )
 {
 	*this = src;
-	std::cout << "AMateria Copy constructor called" << std::endl;
+	std::cout << "AMateria Copy constructor called" << std::endl << std::endl;
 }
 
 AMateria::~AMateria()
@@ -35,7 +35,7 @@ AMateria::~AMateria()
 
 AMateria &	AMateria::operator=( const AMateria &rhs )
 {
-	std::cout << "AMateria Copy assignment operator called" << std::endl;
+	std::cout << "AMateria Copy assignment operator called" << std::endl << std::endl;
 	if ( this != &rhs )
 	{
 		*this = rhs;

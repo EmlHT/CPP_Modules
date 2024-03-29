@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:10:13 by ehouot            #+#    #+#             */
-/*   Updated: 2024/03/19 13:13:26 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/03/29 11:54:21 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 int main()
 {
 	const AAnimal* tab[4];
+	// AAnimal* animal = new AAnimal();
 	
 	for (int i = 0; i < 2; i++)
 		tab[i] = new Cat();

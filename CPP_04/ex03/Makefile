@@ -6,7 +6,7 @@
 #    By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/19 15:55:47 by ehouot            #+#    #+#              #
-#    Updated: 2024/03/25 11:42:10 by ehouot           ###   ########.fr        #
+#    Updated: 2024/03/29 10:36:09 by ehouot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ SRC_MAIN 	= 	./main.cpp \
 				./Ice.cpp \
 				./Cure.cpp \
 				./Character.cpp \
+				./MateriaSource.cpp \
 
 SRC			= ${SRC_MAIN}
 

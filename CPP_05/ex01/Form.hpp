@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/29 14:20:59 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/02 14:18:53 by ehouot           ###   ########.fr       */
+/*   Created: 2024/04/02 14:18:03 by ehouot            #+#    #+#             */
+/*   Updated: 2024/04/02 15:28:08 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
 # include <iostream>
+# include "Bureaucrat.hpp"
 
-class Bureaucrat
+class Form
 {
     public:
 
-	Bureaucrat(std::string const & name, int const & range);
-	Bureaucrat( const Bureaucrat &src);
-	virtual ~Bureaucrat( void );
+	Form(std::string const & name, int const & range);
+	Form( const Form &src);
+	virtual ~Form( void );
 
-	Bureaucrat &	operator=( const Bureaucrat &rhs );
+	Form &	operator=( const Form &rhs );
 
 	std::string getName() const;
-	int			getGrade() const;
-	void		decreaseGrade( void );
-	void		increaseGrade( void );
+    bool        getIsSigned() const;
+	int			getGradeToSign() const;
+	int			getGradeToExec() const;
+	void		beSigned( Bureaucrat pion );
 	
 	private :
     
-	Bureaucrat( void );
+	Form( void );
 	class GradeTooHighException : public std::exception
 	{
 		public :
@@ -49,10 +51,13 @@ class Bureaucrat
 				return ("Problem, too low range.");
 			}
 	};
+    
 	const std::string	_name;
-	int					_range;
+	bool				_isSigned;
+	const int			_gradeToSign;
+	const int			_gradeToExec;
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& rhs);
+std::ostream& operator<<(std::ostream& os, const Form& rhs);
 
 #endif

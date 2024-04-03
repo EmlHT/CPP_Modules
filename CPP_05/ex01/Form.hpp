@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 14:18:03 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/02 15:28:08 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/03 19:50:27 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
     public:
 
-	Form(std::string const & name, int const & range);
+	Form( std::string const & name, int const & gradeToSign, int const & gradeToExec );
 	Form( const Form &src);
 	virtual ~Form( void );
 
@@ -30,8 +32,8 @@ class Form
     bool        getIsSigned() const;
 	int			getGradeToSign() const;
 	int			getGradeToExec() const;
-	void		beSigned( Bureaucrat pion );
-	
+	void		beSigned( const Bureaucrat &pion );
+
 	private :
     
 	Form( void );
@@ -40,7 +42,7 @@ class Form
 		public :
 			virtual const char* what() const throw()
 			{
-				return ("Problem, too high range.");
+				return ("the grade to sign or execute is too high.");
 			}
 	};
 	class GradeTooLowException : public std::exception
@@ -48,7 +50,15 @@ class Form
 		public :
 			virtual const char* what() const throw()
 			{
-				return ("Problem, too low range.");
+				return ("the to sign or execute is too low.");
+			}
+	};
+	class GradeAlreadySignedException : public std::exception
+	{
+		public :
+			virtual const char* what() const throw()
+			{
+				return ("this form is already signed.");
 			}
 	};
     

@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 09:45:07 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/02 17:18:09 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/03 19:54:01 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat & Bureaucrat::operator=( const Bureaucrat &rhs )
 {
-    std::cout << "Bureaucrat Copy assignment operator called" << std::endl;
+    // std::cout << "Bureaucrat Copy assignment operator called" << std::endl;
 	if ( this != &rhs )
 	{
 		*this = rhs;
@@ -79,10 +79,15 @@ void		Bureaucrat::increaseGrade( void )
 	std::cout << "Range increased for the Bureaucrat " << _name << std::endl;
 }
 
-void		Bureaucrat::signForm( Form const &form )
+void		Bureaucrat::signForm( Form &form )
 {
-	if (form.getIsSigned() == true)
-		std::cout << this->getName() << " signed " << form << std::endl;
-	else
-		std::cout << this->getName() << " couldn't sign " << form << " because the bureaucrat doesn't have the necessary grade." << std::endl;
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed" << form << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << this->getName() << " couldn't sign " << form << " because " << e.what() << std::endl;
+	}
 }

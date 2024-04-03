@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:18:02 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/03 19:54:29 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/03 20:44:01 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int main ()
         
         std::cout << Pion1;
         Pion1.signForm(Form1);
-        Pion1.
         Pion1.decreaseGrade();
         std::cout << Pion1;
     }

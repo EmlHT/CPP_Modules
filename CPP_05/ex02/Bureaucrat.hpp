@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:20:59 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/03 21:29:49 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/03 19:11:05 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -21,7 +24,7 @@ class Bureaucrat
 
 	Bureaucrat(std::string const & name, int const & range);
 	Bureaucrat( const Bureaucrat &src);
-	~Bureaucrat( void );
+	virtual ~Bureaucrat( void );
 
 	Bureaucrat &	operator=( const Bureaucrat &rhs );
 
@@ -29,6 +32,7 @@ class Bureaucrat
 	int			getGrade() const;
 	void		decreaseGrade( void );
 	void		increaseGrade( void );
+	void		signForm( Form &form );
 	
 	private :
     

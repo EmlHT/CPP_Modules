@@ -6,27 +6,27 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 14:18:03 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/03 21:29:32 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/03 20:51:22 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
     public:
 
-	Form( std::string const & name, int const & gradeToSign, int const & gradeToExec );
-	Form( const Form &src);
-	~Form( void );
+	AForm( std::string const & name, int const & gradeToSign, int const & gradeToExec );
+	AForm( const AForm &src);
+	virtual ~AForm( void );
 
-	Form &	operator=( const Form &rhs );
+	AForm &	operator=( const AForm &rhs );
 
 	std::string getName() const;
     bool        getIsSigned() const;
@@ -36,7 +36,7 @@ class Form
 
 	private :
     
-	Form( void );
+	AForm( void );
 	class GradeTooHighException : public std::exception
 	{
 		public :
@@ -61,13 +61,13 @@ class Form
 				return ("this form is already signed.");
 			}
 	};
-    
+
 	const std::string	_name;
 	bool				_isSigned;
 	const int			_gradeToSign;
 	const int			_gradeToExec;
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& rhs);
+std::ostream& operator<<(std::ostream& os, const AForm& rhs);
 
 #endif

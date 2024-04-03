@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:20:59 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/03 19:11:05 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/03 21:29:25 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Bureaucrat
 
 	Bureaucrat(std::string const & name, int const & range);
 	Bureaucrat( const Bureaucrat &src);
-	virtual ~Bureaucrat( void );
+	~Bureaucrat( void );
 
 	Bureaucrat &	operator=( const Bureaucrat &rhs );
 

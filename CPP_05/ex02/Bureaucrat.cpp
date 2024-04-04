@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 09:45:07 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/03 19:54:01 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/04 18:56:10 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,17 @@ void		Bureaucrat::signForm( Form &form )
 	{
 		std::cerr << this->getName() << " couldn't sign " << form << " because " << e.what() << std::endl;
 	}
+}
+
+void		Bureaucrat::executeForm(Form const & form)
+{
+	if ()
+}
+
+char const	*Bureaucrat::GradeTooHighException::what() const throw() {
+	return "Problem, too high range.";
+}
+
+char const	*Bureaucrat::GradeTooLowException::what() const throw() {
+	return "Problem, too low range.";
 }

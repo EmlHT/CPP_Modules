@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 14:18:03 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/03 20:51:22 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/04 12:10:09 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,39 +28,37 @@ class AForm
 
 	AForm &	operator=( const AForm &rhs );
 
-	std::string getName() const;
-    bool        getIsSigned() const;
-	int			getGradeToSign() const;
-	int			getGradeToExec() const;
-	void		beSigned( const Bureaucrat &pion );
+	std::string 	getName() const;
+    bool        	getIsSigned() const;
+	int				getGradeToSign() const;
+	int				getGradeToExec() const;
+	void			beSigned( const Bureaucrat &pion );
+	virtual void	execute(Bureaucrat const & executor) const = 0;
 
-	private :
-    
-	AForm( void );
 	class GradeTooHighException : public std::exception
 	{
 		public :
-			virtual const char* what() const throw()
-			{
-				return ("the grade to sign or execute is too high.");
-			}
+			virtual const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
 		public :
-			virtual const char* what() const throw()
-			{
-				return ("the to sign or execute is too low.");
-			}
+			virtual const char* what() const throw();
 	};
 	class GradeAlreadySignedException : public std::exception
 	{
 		public :
-			virtual const char* what() const throw()
-			{
-				return ("this form is already signed.");
-			}
+			virtual const char* what() const throw();
 	};
+	class NotSignedException : public std::exception
+	{
+		public :
+			virtual const char* what() const throw();
+	};
+
+	private :
+    
+	AForm( void );
 
 	const std::string	_name;
 	bool				_isSigned;

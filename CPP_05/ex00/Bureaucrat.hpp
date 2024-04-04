@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:20:59 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/03 21:29:49 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/04 10:31:18 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,20 @@ class Bureaucrat
 	void		decreaseGrade( void );
 	void		increaseGrade( void );
 	
-	private :
-    
-	Bureaucrat( void );
 	class GradeTooHighException : public std::exception
 	{
 		public :
-			virtual const char* what() const throw()
-			{
-				return ("Problem, too high range.");
-			}
+			virtual const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
 		public :
-			virtual const char* what() const throw()
-			{
-				return ("Problem, too low range.");
-			}
+			virtual const char* what() const throw();
 	};
+
+	private :
+
+	Bureaucrat( void );
 	const std::string	_name;
 	int					_range;
 };

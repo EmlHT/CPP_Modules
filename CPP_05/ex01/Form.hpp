@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 14:18:03 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/03 21:29:32 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/04 10:35:38 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,33 +34,25 @@ class Form
 	int			getGradeToExec() const;
 	void		beSigned( const Bureaucrat &pion );
 
-	private :
-    
-	Form( void );
 	class GradeTooHighException : public std::exception
 	{
 		public :
-			virtual const char* what() const throw()
-			{
-				return ("the grade to sign or execute is too high.");
-			}
+			virtual const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
 		public :
-			virtual const char* what() const throw()
-			{
-				return ("the to sign or execute is too low.");
-			}
+			virtual const char* what() const throw();
 	};
 	class GradeAlreadySignedException : public std::exception
 	{
 		public :
-			virtual const char* what() const throw()
-			{
-				return ("this form is already signed.");
-			}
+			virtual const char* what() const throw();
 	};
+
+	private :
+    
+	Form( void );
     
 	const std::string	_name;
 	bool				_isSigned;

@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 15:24:34 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/03 21:00:23 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/04 12:10:43 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,20 @@ void		AForm::beSigned( const Bureaucrat &pion )
 		this->_isSigned = true;
 	else
 		throw GradeTooLowException();
+}
+
+char const	*AForm::GradeTooHighException::what() const throw() {
+	return "the grade to sign or execute is too high.";
+}
+
+char const	*AForm::GradeTooLowException::what() const throw() {
+	return "the grade to sign or execute is too low.";
+}
+
+char const	*AForm::GradeAlreadySignedException::what() const throw() {
+	return "this form is already signed.";
+}
+
+char const	*AForm::NotSignedException::what() const throw() {
+	return "this form is not signed.";
 }

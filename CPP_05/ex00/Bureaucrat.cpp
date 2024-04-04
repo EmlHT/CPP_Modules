@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 09:45:07 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/02 10:59:44 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/04 10:30:43 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,12 @@ void		Bureaucrat::increaseGrade( void )
 	else
 		this->_range--;
 	std::cout << "Range increased for the Bureaucrat " << _name << std::endl;
+}
+
+char const	*Bureaucrat::GradeTooHighException::what() const throw() {
+	return "Problem, too high range.";
+}
+
+char const	*Bureaucrat::GradeTooLowException::what() const throw() {
+	return "Problem, too low range.";
 }

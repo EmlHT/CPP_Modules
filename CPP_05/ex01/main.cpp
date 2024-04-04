@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:18:02 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/03 20:46:00 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/04 09:16:51 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main ()
 {
     try
     {
-        Bureaucrat  Pion1 = Bureaucrat("Brett", 19);
+        Bureaucrat  Pion1 = Bureaucrat("Brett", 200);
         Form        Form1 = Form("Paperasse", 20, 14);
         
         std::cout << Pion1;

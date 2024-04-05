@@ -6,11 +6,12 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:18:02 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/04 09:16:51 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/05 15:44:26 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main ()
 {

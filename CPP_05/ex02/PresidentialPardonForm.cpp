@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:15:16 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/04 18:17:27 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/05 16:29:27 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("Default", 0, 0)
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm( std::string const &target ) : _target(target), AForm(target, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm( std::string const &target ) : AForm("President", 25, 5), _target(target)
 {
 	std::cout << "PresidentialPardonForm parametric constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &src ) : _target(src._target), AForm(src)
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &src ) : AForm(src), _target(src._target)
 {
 	*this = src;
 	std::cout << "PresidentialPardonForm Copy constructor called" << std::endl;
@@ -54,5 +54,5 @@ void    PresidentialPardonForm::execute(Bureaucrat const & executor) const
 		throw AForm::GradeTooLowException();
 	if (this->getIsSigned() == false)
 		throw AForm::NotSignedException();
-    std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+    std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

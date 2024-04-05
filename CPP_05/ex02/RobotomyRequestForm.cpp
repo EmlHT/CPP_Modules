@@ -6,36 +6,37 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:37:57 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/04 12:51:44 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/05 16:40:48 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include <fstream>
+#include <cstdlib>
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Default", 0, 0)
+RobotomyRequestForm::RobotomyRequestForm() : AForm("Default", 0, 0)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string const &target ) : _target(target), AForm(target, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm( std::string const &target ) : AForm("Robot", 72, 45), _target(target)
 {
-	std::cout << "ShrubberyCreationForm parametric constructor called" << std::endl;
+	std::cout << "RobotomyRequestForm parametric constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &src ) : _target(src._target), AForm(src)
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm &src ) : AForm(src), _target(src._target)
 {
 	*this = src;
-	std::cout << "ShrubberyCreationForm Copy constructor called" << std::endl;
+	std::cout << "RobotomyRequestForm Copy constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
+	std::cout << "RobotomyRequestForm destructor called" << std::endl;
 }
 
-ShrubberyCreationForm & ShrubberyCreationForm::operator=( const ShrubberyCreationForm &rhs )
+RobotomyRequestForm & RobotomyRequestForm::operator=( const RobotomyRequestForm &rhs )
 {
-    std::cout << "ShrubberyCreationForm Copy assignment operator called" << std::endl;
+    std::cout << "RobotomyRequestForm Copy assignment operator called" << std::endl;
 	if ( this != &rhs )
 	{
 		*this = rhs;
@@ -43,19 +44,19 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=( const ShrubberyCreatio
 	return (*this);
 }
 
-std::string ShrubberyCreationForm::getTarget() const
+std::string RobotomyRequestForm::getTarget() const
 {
     return this->_target;
 }
 
-void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void    RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	if (executor.getGrade() > 45)
 		throw AForm::GradeTooLowException();
 	if (this->getIsSigned() == false)
 		throw AForm::NotSignedException();
     std::cout << "Biiip Bop Bip..." << std::endl;
-    if ((int)(rand() % 1) == 0)
+    if ((int)(rand() % 100) > 50)
         std::cout << _target << " has been robotomized successfully !" << std::endl;
     else
         std::cout << _target << " has FAILED to be robotomized..." << std::endl;

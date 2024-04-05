@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 09:45:07 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/04 18:56:10 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/05 16:39:05 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Bureaucrat & Bureaucrat::operator=( const Bureaucrat &rhs )
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& rhs)
 {
-	os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
+	os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
 	return os;
 }
 
@@ -79,7 +79,7 @@ void		Bureaucrat::increaseGrade( void )
 	std::cout << "Range increased for the Bureaucrat " << _name << std::endl;
 }
 
-void		Bureaucrat::signForm( Form &form )
+void		Bureaucrat::signForm( AForm &form )
 {
 	try
 	{
@@ -92,9 +92,17 @@ void		Bureaucrat::signForm( Form &form )
 	}
 }
 
-void		Bureaucrat::executeForm(Form const & form)
+void		Bureaucrat::executeForm( AForm const & form )
 {
-	if ()
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << this->getName() << " couldn't exec " << form << " because " << e.what() << std::endl;
+	}
 }
 
 char const	*Bureaucrat::GradeTooHighException::what() const throw() {

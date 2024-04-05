@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 21:28:48 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/04 12:14:40 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/05 16:27:55 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Default", 0, 0)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string const &target ) : _target(target), AForm(target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm( std::string const &target ) : AForm("Shrub", 145, 137), _target(target)
 {
 	std::cout << "ShrubberyCreationForm parametric constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &src ) : _target(src._target), AForm(src)
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &src ) : AForm(src), _target(src._target)
 {
 	*this = src;
 	std::cout << "ShrubberyCreationForm Copy constructor called" << std::endl;
@@ -56,7 +56,7 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		throw AForm::NotSignedException();
 	else
 	{	
-		std::string     filename = _target + "_shrubbery";
+		std::string     filename = this->_target + "_shrubbery";
 		std::ofstream   ofs(filename.c_str());
 
 		if (ofs.is_open())

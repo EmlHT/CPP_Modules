@@ -1,6 +1,9 @@
 SRC_MAIN 	= 	./main.cpp \
 				./Bureaucrat.cpp \
-				./AForm.cpp
+				./AForm.cpp \
+				./PresidentialPardonForm.cpp \
+				./RobotomyRequestForm.cpp \
+				./ShrubberyCreationForm.cpp \
 
 SRC			= ${SRC_MAIN}
 

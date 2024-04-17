@@ -1,5 +1,5 @@
 SRC_MAIN 	= 	./main.cpp \
-				./
+				./ScalarConverter.cpp
 
 SRC			= ${SRC_MAIN}
 

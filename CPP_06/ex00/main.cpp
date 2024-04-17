@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 07:05:14 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/17 17:26:48 by ehouot           ###   ########.fr       */
+/*   Created: 2024/04/17 17:11:28 by ehouot            #+#    #+#             */
+/*   Updated: 2024/04/17 17:26:33 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "ScalarConverter.hpp"
 
-#include <iostream>
-
-class ScalarConverter
+int main(int argc, char **argv)
 {
-	private :
-	
-	ScalarConverter();
-	ScalarConverter( const ScalarConverter &src );
-	~ScalarConverter();
-
-	public:
-
-	ScalarConverter &	operator=( const ScalarConverter &rhs );
-
-	static void	convert( std::string &literal );
-
-};
+    if (argc == 2)
+    {
+        std::string arg(argv[1]);
+        ScalarConverter::convert(arg);
+    }
+    return (0);
+}

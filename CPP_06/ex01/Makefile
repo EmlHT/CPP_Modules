@@ -1,5 +1,6 @@
 SRC_MAIN 	= 	./main.cpp \
-				./ScalarConverter.cpp
+				./Data.cpp \
+				./Serializer.cpp
 
 SRC			= ${SRC_MAIN}
 
@@ -13,7 +14,7 @@ RM 			= rm -f
 
 CPPFLAGS 	= -Wall -Werror -Wextra -std=c++98
 
-NAME 		= Cast
+NAME 		= Serializer
 
 ifdef DEBUG
 	CPPFLAGS += -fsanitize=address -g3

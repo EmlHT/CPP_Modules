@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:49:13 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/22 15:26:53 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/22 16:17:24 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 
 template < typename T >
-void    iter(T &array, T len, T f())
+void    iter(T &array, int len, void (*f)(T &))
 {
 	for (int i = 0; i < len; i++)
 		f(array[i]);

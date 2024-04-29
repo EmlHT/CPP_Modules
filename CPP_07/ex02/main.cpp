@@ -6,34 +6,21 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:27:20 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/27 19:57:46 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/04/29 18:31:33 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
-#include "iter.hpp"
+#include "Array.hpp"
 
-void    printInt(int const &index)
-{
-    std::cout << index << std::endl;
-}
-
-void    printString(std::string const &index)
-{
-    std::cout << index << std::endl;
-}
 
 int main()
 {
-	std::string array1[] = {"ALORS", "COMMENT", "CA VA", "?"};
-	int         array2[] = {1, 10, 3, 42, 0, 1999999};
-
-	iter(array1, 4, printString);
-
-	std::cout << std::endl;
+	Array<int> arr1();
+	int *a = new int[100];
 	
-	iter(array2, 6, printInt);
 
+	
 	return 0;
 }

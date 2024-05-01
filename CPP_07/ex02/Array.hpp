@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:49:13 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/30 16:53:42 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/01 16:44:31 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Array
 	public :
 
 	Array() {
-		this->_elements[0] = new T[0];
+		this->_elements = new T[0];
 	};
 	Array(unsigned int n) : _n(n){
 		_elements = new T[n];

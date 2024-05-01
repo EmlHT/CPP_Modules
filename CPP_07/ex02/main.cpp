@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:27:20 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/30 16:59:49 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/01 16:44:24 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main()
 {
-	Array<int> arr1();
+	Array<int> arr1;
 	Array<int> arr2(10);
 
 	for (unsigned int i = 0; i < arr2.size(); i++)

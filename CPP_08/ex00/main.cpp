@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:41:16 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/30 19:23:49 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/01 11:31:18 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ int main()
 	std::cout << std::endl;
 	std::cout << "Display the occurence of " << 2 << " in the list at the index : ";
 	try {
-		std::cout << easyfind(lst1, 2) << std::endl;
+		easyfind(lst1, 2);
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
 	std::cout << "Display the occurence of " << -1 << " in the list at the index : ";
 	try {
-		std::cout << easyfind(lst1, -1) << std::endl;
+		easyfind(lst1, -1);
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}

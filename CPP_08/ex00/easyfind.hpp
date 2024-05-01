@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:42:18 by ehouot            #+#    #+#             */
-/*   Updated: 2024/04/30 19:26:48 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/01 11:37:13 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <algorithm>
 
 class NotInTheList : public std::exception {
 	public :
@@ -24,17 +25,13 @@ class NotInTheList : public std::exception {
 };
 
 template <typename T>
-int	easyfind(T list, int value)
+void	easyfind(T list, int value)
 {
-	int i = 0;
-	typename T::const_iterator	it;
+	typename T::const_iterator	it = list.begin();
 	typename T::const_iterator	ite = list.end();
-	for (it = list.begin(); it != ite; it++)
-	{
-		if (*it == value)
-			return i;
-		i++;
-	}
-	throw NotInTheList();
-	return -1;
+	typename T::const_iterator	tmp = find(it, ite, value);
+	if (tmp != ite)
+		std::cout << distance(it, tmp) << std::endl;
+	else
+		throw NotInTheList();
 }

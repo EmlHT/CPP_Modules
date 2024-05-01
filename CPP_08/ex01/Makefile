@@ -1,4 +1,5 @@
 SRC_MAIN 	= 	./main.cpp \
+				./Span.cpp
 
 SRC			= ${SRC_MAIN}
 

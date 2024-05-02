@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 20:06:48 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/01 12:57:46 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/02 09:41:22 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Span
 		int		shortestSpan( void ) const;
 		int		longestSpan( void ) const;
 		void	displayVector( void ) const;
+		void    moreNumbers( std::vector<int> newNumbers, unsigned int position );
 
 		class VectorAlreadyFull : public std::exception {
 			public :

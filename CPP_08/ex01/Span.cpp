@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 20:06:20 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/01 17:30:54 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/02 09:43:35 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Span::Span(){}
 
-Span::Span( unsigned int N ) : _N(N), _vec(0) {}
+Span::Span( unsigned int N ) : _N(N) {}
 
 Span::Span( const Span &src )
 {
@@ -76,6 +76,15 @@ int		Span::longestSpan( void ) const
     }
 }
 
+void    Span::moreNumbers( std::vector<int> newNumbers, unsigned int position )
+{
+    if(this->_vec.size() + newNumbers.size() > this->_N)
+        throw VectorAlreadyFull();
+    if (this->_vec.size() < position)
+        position = this->_vec.size();
+    this->_vec.insert(this->_vec.begin() + position, newNumbers.begin(), newNumbers.end());
+}
+
 void	Span::displayVector( void ) const
 {
     std::vector<int>::const_iterator	it;
@@ -86,7 +95,7 @@ void	Span::displayVector( void ) const
 }
 
 char const	*Span::VectorAlreadyFull::what() const throw() {
-	return "ERROR: The map is already full";
+	return "ERROR: The addition exceeds the vector's max size";
 }
 
 char const	*Span::ZeroNumberFound::what() const throw() {

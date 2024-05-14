@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehouot < ehouot@student.42nice.fr>         +#+  +:+       +#+        */
+/*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:40:12 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/08 20:53:10 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/14 16:15:45 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <string>
 #include <map>
@@ -32,7 +33,7 @@ class BitcoinExchange
 
     BitcoinExchange &   operator=( const BitcoinExchange &rhs );
 
-    void    fillMap() const;
-    
-    
+    void    fillMap();
+    void    treatInput(std::ifstream &ifs);
+    void	displayMap( void ) const;
 };

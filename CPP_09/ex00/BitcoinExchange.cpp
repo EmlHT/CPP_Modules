@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:39:47 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/14 16:22:13 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/15 14:25:33 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,24 @@ void    BitcoinExchange::treatInput(std::ifstream &ifs)
 	std::string	value;
 	std::getline(ifs, line);
 	if (line != "date | value")
-		std::cout << "First line should be \"date | value\"." << std::endl;
+		std::cout << "Error : First line should be \"date | value\"." << std::endl;
 	while (std::getline(ifs, line))
 	{
 		pos = line.find(' | ');
 		if (pos != std::string::npos) 
 		{
     		date = line.substr(0, pos);
+			if (date.length() != 10)
+				std::cout << "Error : bad input => " << date << std::endl;
 			value = line.substr(pos + 3);
+			std::size_t pos2 = date.find('-');
+			if (pos2 != std::string::npos)
+			{
+				
+			}
     	}
+		else
+			std::cout << "Error : Wrong syntax" << std::endl;
 	}
 }
 

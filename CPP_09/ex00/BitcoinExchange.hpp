@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:40:12 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/14 16:15:45 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/22 15:53:50 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,6 @@ class BitcoinExchange
     void    fillMap();
     void    treatInput(std::ifstream &ifs);
     void	displayMap( void ) const;
+    int     parseDate(std::string date) const;
+    int		findDate(std::string date) const;
 };

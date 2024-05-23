@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:08:26 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/14 16:15:33 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/23 15:02:18 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int main(int argc, char **argv)
     }
     else
         std::cout << "Error: could not open file." << std::endl;
-    map1.displayMap();
+    // map1.displayMap();
     return 0;
 }

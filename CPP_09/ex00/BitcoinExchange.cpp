@@ -6,11 +6,12 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:39:47 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/22 16:43:46 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/23 18:38:07 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+#include <climits>
 
 BitcoinExchange::BitcoinExchange( void )
 {
@@ -107,6 +108,11 @@ int		BitcoinExchange::parseDate(std::string date) const
 	int yearInt = stringToInt(year);
 	int monthInt = stringToInt(month);
 	int dayInt = stringToInt(day);
+	if (monthInt <= 0 || monthInt > 12 || dayInt <= 0 || dayInt > 31)
+	{
+		std::cerr << "Error : bad input => " << date << std::endl;
+        return 1;
+	}
 	if ((yearInt <= 2010 && monthInt <= 8 && dayInt < 20) || yearInt > 2024 || (monthInt > 12 || monthInt < 1) || (dayInt > 31 || dayInt < 1))
 	{
 		std::cerr << "Error : bad input (Bitcoin values starts at 2010-08-20) => " << date << std::endl;
@@ -140,17 +146,51 @@ int		BitcoinExchange::parseDate(std::string date) const
 	return 0;
 }
 
-int		BitcoinExchange::findDate(std::string date) const
+double		BitcoinExchange::findDate(std::string date) const
 {
-	std::map<std::string, double>::const_iterator it;
-	std::map<std::string, double>::const_iterator ite = this->_map.end();
-	std::map<std::string, double>::const_iterator posDate = this->_map.find(date);
-	if (posDate == std::string::npos)
-		
-	for (it = this->_map.begin(); it != ite; it++)
+	std::map<std::string, double>::const_iterator posDate = this->_map.lower_bound(date);
+	if (posDate == this->_map.end() || posDate->first != date)
 	{
-		
+		if (posDate != this->_map.begin())
+		{
+			--posDate;
+			return (posDate->second);
+		}
 	}
+	return (posDate->second);
+}
+
+bool	checkValue(std::string value)
+{
+	for (size_t i = 0; i < value.length(); i++)
+	{
+		if (!std::isdigit(value[i]) && value[i] != '.' && value[i] != '+' && value[i] != '-')
+		{
+			std::cout << "Error : bad number." << std::endl;
+			return (false);
+		}
+	}
+	if (value.empty() || value.find("..") != std::string::npos || value.find("-+") != std::string::npos 
+		|| value.find("++") != std::string::npos || value.find("--") != std::string::npos
+		|| value.find("+-") != std::string::npos || value.find(".-") != std::string::npos 
+		|| value.find(".+") != std::string::npos
+		|| (value.find(".") != std::string::npos && value.find(".") == 0)
+		|| value.find("-.") == 0 || value.find("+.") == 0)
+	{
+    	std::cout << "Error : bad number." << std::endl;
+		return (false);
+    }
+	else if (stringToDouble(value) > 2147483647)
+	{
+		std::cout << "Error : too large a number." << std::endl;
+		return (false);
+	}
+	else if (stringToDouble(value) < 0)
+	{
+		std::cout << "Error : not a positive number." << std::endl;
+		return (false);
+	}
+	return (true);
 }
 
 void    BitcoinExchange::treatInput(std::ifstream &ifs)
@@ -159,24 +199,29 @@ void    BitcoinExchange::treatInput(std::ifstream &ifs)
 	std::size_t pos;
 	std::string	date;
 	std::string	value;
-	int coef = 0;
+	double coef;
 	std::getline(ifs, line);
 	if (line != "date | value")
 		std::cout << "Error : First line should be \"date | value\"." << std::endl;
 	while (std::getline(ifs, line))
 	{
-		pos = line.find(' | ');
+		coef = 0;
+		pos = line.find(" | ");
 		if (pos != std::string::npos) 
 		{
     		date = line.substr(0, pos);
 			value = line.substr(pos + 3);
 			if (parseDate(date) == 0)
 			{
-				int coef = findDate(date);
+				coef = findDate(date);
+				if (checkValue(value) == false)
+					continue;
+				else
+					std::cout << date << " => " << value << " = " << coef * stringToDouble(value) << std::endl;
 			}
     	}
 		else
-			std::cout << "Error : Wrong syntax" << std::endl;
+			std::cout << "Error : bad input => " << line.substr(0, pos) << std::endl;
 	}
 }
 

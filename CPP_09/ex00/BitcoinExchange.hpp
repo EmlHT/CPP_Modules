@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:40:12 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/22 15:53:50 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/23 15:46:19 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,18 @@ class BitcoinExchange
 {
     private :
 
-        std::map<std::string, double> _map;
+    std::map<std::string, double> _map;
+    BitcoinExchange( const BitcoinExchange &src );
+    BitcoinExchange &   operator=( const BitcoinExchange &rhs );
     
     public :
 
     BitcoinExchange();
-    ~BitcoinExchange();
-    BitcoinExchange( const BitcoinExchange &src );
-
-    BitcoinExchange &   operator=( const BitcoinExchange &rhs );
+    virtual ~BitcoinExchange();
 
     void    fillMap();
     void    treatInput(std::ifstream &ifs);
     void	displayMap( void ) const;
     int     parseDate(std::string date) const;
-    int		findDate(std::string date) const;
+    double	findDate(std::string date) const;
 };

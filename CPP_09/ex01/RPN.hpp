@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 14:08:26 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/24 12:05:42 by ehouot           ###   ########.fr       */
+/*   Created: 2024/05/02 18:40:12 by ehouot            #+#    #+#             */
+/*   Updated: 2024/05/24 13:26:26 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#pragma once
+
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <string>
+#include <stack>
+#include <algorithm>
 
-int main(int argc, char **argv)
+class RPN
 {
-    std::ifstream ifs;
-    BitcoinExchange map1;
-    ifs.open(argv[1], std::ifstream::in);
-    if (argc == 2 && ifs.is_open())
-    {
-        map1.fillMap();
-        map1.treatInput(ifs);
-        ifs.close();
-    }
-    else
-        std::cout << "Error: could not open file." << std::endl;
-    // map1.displayMap();
-    return 0;
-}
+    private :
+
+    std::stack<std::string> _stack;
+    RPN( const RPN &src );
+    RPN &   operator=( const RPN &rhs );
+    
+    public :
+
+    RPN();
+    ~RPN();
+
+};

@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:40:12 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/23 15:46:19 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/24 12:06:31 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class BitcoinExchange
     public :
 
     BitcoinExchange();
-    virtual ~BitcoinExchange();
+    ~BitcoinExchange();
 
     void    fillMap();
     void    treatInput(std::ifstream &ifs);

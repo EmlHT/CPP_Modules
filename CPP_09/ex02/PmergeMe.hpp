@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 12:05:22 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/27 14:44:47 by ehouot           ###   ########.fr       */
+/*   Created: 2024/05/02 18:40:12 by ehouot            #+#    #+#             */
+/*   Updated: 2024/05/27 16:06:10 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#pragma once
+
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <string>
-#include <limits>
+#include <deque>
+#include <vector>
+#include <algorithm>
 
-int main(int argc, char** argv)
+class PmergeMe
 {
-	RPN	stack;
-	if (argc == 2)
-	{
-		std::string	input = argv[1];
-		try {
-			stack.parseInput(input);
-			stack.fillStack(input);
-		} catch (std::exception &e) {
-			std::cout << e.what() << std::endl;
-		}
-	}
-	else
-		std::cout << "Error main" <<std::endl;
-	return 0;
-}
+    private :
+
+    std::deque<int> _deque;
+    std::vector<int> _vect;
+    PmergeMe( const PmergeMe &src );
+    PmergeMe &   operator=( const PmergeMe &rhs );
+    
+    public :
+
+    PmergeMe();
+    ~PmergeMe();
+
+    class Error : public std::exception
+    {
+        public :
+            virtual const char* what() const throw();
+    };
+
+};

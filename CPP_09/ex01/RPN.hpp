@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:40:12 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/24 13:26:26 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/27 14:25:57 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class RPN
 {
     private :
 
-    std::stack<std::string> _stack;
+    std::stack<int> _stack;
     RPN( const RPN &src );
     RPN &   operator=( const RPN &rhs );
     
@@ -31,5 +31,15 @@ class RPN
 
     RPN();
     ~RPN();
+
+    void parseInput(std::string &input);
+    void fillStack(std::string &input);
+    void calculation(char sign);
+
+    class Error : public std::exception
+    {
+        public :
+            virtual const char* what() const throw();
+    };
 
 };

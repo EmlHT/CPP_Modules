@@ -1,5 +1,5 @@
 SRC_MAIN 	= 	./main.cpp \
-				./RPN.cpp
+				./PmergeMe.cpp
 
 SRC			= ${SRC_MAIN}
 
@@ -13,7 +13,7 @@ RM 			= rm -f
 
 CPPFLAGS 	= -Wall -Werror -Wextra -std=c++98
 
-NAME 		= RPN
+NAME 		= PmergeMe
 
 ifdef DEBUG
 	CPPFLAGS += -fsanitize=address -g3

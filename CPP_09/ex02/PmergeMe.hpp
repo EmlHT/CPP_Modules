@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:40:12 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/28 15:19:18 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/28 22:32:02 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class PmergeMe
     std::vector<unsigned int> _vect;
     PmergeMe( const PmergeMe &src );
     PmergeMe &   operator=( const PmergeMe &rhs );
-    
+
     public :
 
     PmergeMe();
@@ -40,11 +40,10 @@ class PmergeMe
 
     template <typename Type> 
     float            sortFordJohnson(Type &container);
-    
+
     class Error : public std::exception
     {
         public :
             virtual const char* what() const throw();
     };
-
 };

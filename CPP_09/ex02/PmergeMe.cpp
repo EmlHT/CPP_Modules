@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:39:47 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/28 15:30:58 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/28 23:25:24 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,24 @@ void    PmergeMe::sortAndDisplay(void)
 template <typename Type>
 float    PmergeMe::sortFordJohnson(Type &container)
 {
+	// debuter le timer
+	Type shortestNb;
+	Type biggestNb;
+
     typename Type::const_iterator it = container.begin();
     typename Type::const_iterator ite = container.end();
-    for (int i = 0; i < container.size() / 2; i++)
+    for (it = container.begin(); it != ite; it++)
+	{
+		if (*it > *(it + 1))
+		{
+			shortestNb.push_back(*(it + 1));
+			biggestNb.push_back(*it);
+		}
         it++;
-    typename Type::const_iterator mid = it;
-    
+	}
+    // prendre les biggests et par recursivitee les cut deux par deux
+	// merge apres les recursivites
+	// inserer les shortests dans le biggest trie
 }
 
 char const      *PmergeMe::Error::what() const throw() {

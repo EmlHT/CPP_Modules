@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:40:12 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/27 16:06:10 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/28 15:19:18 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 #include <iostream>
 #include <sstream>
-#include <fstream>
 #include <string>
 #include <deque>
 #include <vector>
+#include <cctype>
 #include <algorithm>
 
 class PmergeMe
 {
     private :
 
-    std::deque<int> _deque;
-    std::vector<int> _vect;
+    std::deque<unsigned int> _deque;
+    std::vector<unsigned int> _vect;
     PmergeMe( const PmergeMe &src );
     PmergeMe &   operator=( const PmergeMe &rhs );
     
@@ -34,6 +34,13 @@ class PmergeMe
     PmergeMe();
     ~PmergeMe();
 
+    unsigned int    charToUInt(const char *str);
+    void            parseInput(char **argv);
+    void            sortAndDisplay(void);
+
+    template <typename Type> 
+    float            sortFordJohnson(Type &container);
+    
     class Error : public std::exception
     {
         public :

@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:05:22 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/27 14:44:47 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/28 12:00:31 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int main(int argc, char** argv)
 		}
 	}
 	else
-		std::cout << "Error main" <<std::endl;
+		std::cout << "Error" <<std::endl;
 	return 0;
 }

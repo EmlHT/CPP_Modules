@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:40:12 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/28 22:32:02 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/29 15:10:59 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ class PmergeMe
     void            parseInput(char **argv);
     void            sortAndDisplay(void);
 
-    template <typename Type> 
-    float            sortFordJohnson(Type &container);
+    template <typename Type>
+    void            recursive(typename Type::iterator begin, typename Type::iterator end);
+    template <typename Type>
+    Type           sortFordJohnson(Type &container);
 
     class Error : public std::exception
     {

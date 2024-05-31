@@ -6,12 +6,15 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:39:47 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/28 23:25:24 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/29 17:36:38 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 #include <climits>
+#include <iterator>
+#include <ctime>
+#include <sys/time.h>
 
 PmergeMe::PmergeMe( void )
 {
@@ -67,39 +70,80 @@ void    PmergeMe::parseInput(char **argv)
 
 void    PmergeMe::sortAndDisplay(void)
 {
-    float vecTime = sortFordJohnson(this->_vect);
-    float dequeTime = sortFordJohnson(this->_deque);
-    std::cout << "After : ";
+    struct timeval start, end;
+    gettimeofday(&start, NULL);
+    this->_vect = sortFordJohnson(this->_vect);
+    gettimeofday(&end, NULL);
+    double durationVec = /*(end.tv_sec - start.tv_sec) * 1e6 + */(end.tv_usec - start.tv_usec);
+    gettimeofday(&start, NULL);
+    this->_deque = sortFordJohnson(this->_deque);
+    gettimeofday(&end, NULL);
+    double durationDeq = /*(end.tv_sec - start.tv_sec) * 1e6 + */(end.tv_usec - start.tv_usec);
+    std::cout << "After vector :  ";
     std::vector<unsigned int>::const_iterator it = this->_vect.begin();
     std::vector<unsigned int>::const_iterator ite = this->_vect.end();
     for (it = this->_vect.begin(); it != ite; it++)
         std::cout << *it << " ";
     std::cout << std::endl;
-    std::cout << "Time to process a range of " << this->_vect.size() << " elements with std::vector : " << vecTime << " us" << std::endl;
-    std::cout << "Time to process a range of " << this->_deque.size() << " elements with std::deque : " << dequeTime << " us" << std::endl;
+    std::cout << "After deque :  ";
+    std::deque<unsigned int>::const_iterator itd = this->_deque.begin();
+    std::deque<unsigned int>::const_iterator ited = this->_deque.end();
+    for (itd = this->_deque.begin(); itd != ited; itd++)
+        std::cout << *itd << " ";
+    std::cout << std::endl; 
+    std::cout << "Time to process a range of " << this->_vect.size() << " elements with std::vector : " << durationVec << " us" << std::endl;
+    std::cout << "Time to process a range of " << this->_deque.size() << " elements with std::deque : " << durationDeq << " us" << std::endl;
 }
 
 template <typename Type>
-float    PmergeMe::sortFordJohnson(Type &container)
+void    PmergeMe::recursive(typename Type::iterator begin, typename Type::iterator end)
 {
-	// debuter le timer
+    if (std::distance(begin, end) <= 1)
+        return ;
+    typename Type::iterator it = begin;
+    typename Type::iterator ite = end;
+    typename Type::iterator mid = begin;
+    for (int i = 0; i < std::distance(begin, end) / 2; i++)
+        *mid++;
+    recursive<Type>(it, mid);
+    recursive<Type>(mid, ite);
+    std::inplace_merge(begin, mid, end);
+}
+
+template <typename Type>
+Type    PmergeMe::sortFordJohnson(Type &container)
+{
 	Type shortestNb;
 	Type biggestNb;
 
-    typename Type::const_iterator it = container.begin();
-    typename Type::const_iterator ite = container.end();
-    for (it = container.begin(); it != ite; it++)
+    typename Type::iterator ite = container.end();
+    for (typename Type::iterator it = container.begin(); it != ite; it++)
 	{
+        if (!*(it + 1))
+        {
+            shortestNb.push_back(*it);
+            break ;
+        }
 		if (*it > *(it + 1))
 		{
 			shortestNb.push_back(*(it + 1));
 			biggestNb.push_back(*it);
+            *(it++);
 		}
-        it++;
+        else
+        {
+            shortestNb.push_back(*it);
+            biggestNb.push_back(*(it + 1));
+            *(it++);
+        }
 	}
-    // prendre les biggests et par recursivitee les cut deux par deux
-	// merge apres les recursivites
-	// inserer les shortests dans le biggest trie
+    recursive<Type>(biggestNb.begin(), biggestNb.end());
+    for (typename Type::iterator it = shortestNb.begin(); it != shortestNb.end(); it++)
+    {
+        typename Type::iterator pos = std::lower_bound(biggestNb.begin(), biggestNb.end(), *it);
+        biggestNb.insert(pos, *it);
+    }
+    return (biggestNb);
 }
 
 char const      *PmergeMe::Error::what() const throw() {

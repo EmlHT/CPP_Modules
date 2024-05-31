@@ -11,7 +11,7 @@ CC 			= c++
 
 RM 			= rm -f
 
-CPPFLAGS 	= -Wall -Werror -Wextra -std=c++98
+CPPFLAGS 	= -g -Wall -Werror -Wextra -std=c++98
 
 NAME 		= PmergeMe
 

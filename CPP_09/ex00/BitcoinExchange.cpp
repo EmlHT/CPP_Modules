@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:39:47 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/23 18:38:07 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/29 18:49:06 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,10 @@ int		BitcoinExchange::parseDate(std::string date) const
 		std::cerr << "Error : bad input => " << date << std::endl;
         return 1;
 	}
-	if ((yearInt <= 2010 && monthInt <= 8 && dayInt < 20) || yearInt > 2024 || (monthInt > 12 || monthInt < 1) || (dayInt > 31 || dayInt < 1))
+	if ((yearInt < 2009 ))
+	if ((monthInt > 12 || monthInt < 1) || (dayInt > 31 || dayInt < 1))
 	{
-		std::cerr << "Error : bad input (Bitcoin values starts at 2010-08-20) => " << date << std::endl;
+		std::cerr << "Error : bad input => " << date << std::endl;
         return 1;
 	}
 	if (dayInt == 31 || (dayInt == 29 && monthInt == 2))
@@ -151,6 +152,7 @@ double		BitcoinExchange::findDate(std::string date) const
 	std::map<std::string, double>::const_iterator posDate = this->_map.lower_bound(date);
 	if (posDate == this->_map.end() || posDate->first != date)
 	{
+		// MODIF FIRST DATE HERE
 		if (posDate != this->_map.begin())
 		{
 			--posDate;

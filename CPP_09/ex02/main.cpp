@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:05:22 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/28 15:12:36 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/29 15:11:44 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int main(int argc, char** argv)
 	{
 		try {
 			tri.parseInput(argv);
-			std::cout << "After :  ";
 			tri.sortAndDisplay();
 		}
 		catch (std::exception &e) {

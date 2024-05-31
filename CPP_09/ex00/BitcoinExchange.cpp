@@ -6,7 +6,7 @@
 /*   By: ehouot <ehouot@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:39:47 by ehouot            #+#    #+#             */
-/*   Updated: 2024/05/29 18:49:06 by ehouot           ###   ########.fr       */
+/*   Updated: 2024/05/31 10:18:40 by ehouot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,11 @@ int		BitcoinExchange::parseDate(std::string date) const
 				std::cerr << "Error : bad input => " << date << std::endl;
 				return 1;
 			case 2:
+				if (dayInt > 29)
+				{
+					std::cerr << "Error : bad input => " << date << std::endl;
+					return 1;
+				}
 				if (!isLeapYear(yearInt))
 				{
 					std::cerr << "Error : bad input (Not a leap year) => " << date << std::endl;
@@ -139,17 +144,17 @@ int		BitcoinExchange::parseDate(std::string date) const
 				break;
 		}
 	}
-	else if (dayInt > 29 && monthInt == 2)
-	{
-		std::cerr << "Error : bad input => " << date << std::endl;
-        return 1;
-	}
 	return 0;
 }
 
 double		BitcoinExchange::findDate(std::string date) const
 {
 	std::map<std::string, double>::const_iterator posDate = this->_map.lower_bound(date);
+	if (posDate == this->_map.begin() && posDate->first != date)
+	{
+		std::cerr << "Error : bad input => " << date << std::endl;
+		return -1;
+	}
 	if (posDate == this->_map.end() || posDate->first != date)
 	{
 		// MODIF FIRST DATE HERE
@@ -216,6 +221,8 @@ void    BitcoinExchange::treatInput(std::ifstream &ifs)
 			if (parseDate(date) == 0)
 			{
 				coef = findDate(date);
+				if (coef == -1)
+					continue;
 				if (checkValue(value) == false)
 					continue;
 				else
